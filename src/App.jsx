@@ -194,7 +194,7 @@ export default function PerformanceLandingPage() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const MAKE_WEBHOOK_URL = 'https://hook.us2.make.com/l93ft4kosyoasrn10d1r8xi0jj8ie043';
+  const MAKE_WEBHOOK_URL = import.meta.env.VITE_MAKE_WEBHOOK_URL ;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -203,7 +203,7 @@ export default function PerformanceLandingPage() {
       await fetch(MAKE_WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'dispatch_manifest_page', timestamp: new Date().toISOString() }),
+        body: JSON.stringify({ email, source: 'LeadsEngineOps.com', timestamp: new Date().toISOString() }),
       });
     } catch (err) {
       console.error('Pipeline connectivity error:', err);
@@ -221,7 +221,7 @@ export default function PerformanceLandingPage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-lg sm:text-xl tracking-tight">
             <Zap className="h-5 w-5 sm:h-6 sm:w-6 fo-accent-text" strokeWidth={2.5} />
-            <span>FlowOps</span>
+            <span>LeadsEgine Ops</span>
           </div>
           <a
             href="#manifest-intake"
@@ -461,9 +461,9 @@ export default function PerformanceLandingPage() {
       <footer className="fo-line-t">
         <div className="max-w-6xl mx-auto px-5 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2 font-semibold text-sm">
-            <Zap className="h-4 w-4 fo-accent-text" /> FlowOps
+            <Zap className="h-4 w-4 fo-accent-text" /> LeadsEgineOps
           </div>
-          <p className="mono fo-ink-faint text-[11px]">© {new Date().getFullYear()} FlowOps — dispatch, not delay.</p>
+          <p className="mono fo-ink-faint text-[11px]">© {new Date().getFullYear()} LeadsEgineOps — dispatch, not delay.</p>
         </div>
       </footer>
     </div>
